@@ -18,6 +18,27 @@
     <jackson.version>2.6.0</jackson.version>
   </properties>
 
+  <developers>
+    <developer>
+      <name>Roman Khrapovitksy</name>
+      <email>laiynus@gmail.com</email>
+      <roles>
+        <role>Java Web Developer</role>
+      </roles>
+      <timezone>+3:00</timezone>
+    </developer>
+
+    <developer>
+      <name>Eugene Amelkov</name>
+      <email>amelkov.ea@gmail.com</email>
+      <roles>
+        <role>Java Web Developer</role>
+      </roles>
+      <timezone>+3:00</timezone>
+    </developer>
+
+  </developers>
+
   <dependencies>
 
     <dependency>
