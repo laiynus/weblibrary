@@ -30,8 +30,14 @@ public class VerificationTokenRepository implements VerificationTokenDAO{
 
     @Override
     public void createVerificationTokenForUser(VerificationToken token) {
-        log.info("Creating user record");
+        log.info("Creating token record");
         sessionFactory.getCurrentSession().save(token);
+    }
+
+    @Override
+    public void deleteVerificationTokenForUser(VerificationToken token) {
+        log.info("Deleting token record");
+        sessionFactory.getCurrentSession().delete(token);
     }
 
 }

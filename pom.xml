@@ -19,10 +19,12 @@
   </properties>
 
   <developers>
+
     <developer>
       <name>Roman Khrapovitksy</name>
       <email>laiynus@gmail.com</email>
       <roles>
+        <role>Main developer and creator</role>
         <role>Java Web Developer</role>
       </roles>
       <timezone>+3:00</timezone>

@@ -27,7 +27,9 @@
        <security:authentication-manager id="authenticationManager">
               <security:authentication-provider user-service-ref="userServiceImplementation">
                      <security:password-encoder ref="passwordEncoder"/>
+
               </security:authentication-provider>
+
        </security:authentication-manager>
 
        <bean class="org.springframework.security.authentication.encoding.ShaPasswordEncoder" id="passwordEncoder"/>

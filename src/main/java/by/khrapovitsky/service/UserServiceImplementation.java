@@ -65,6 +65,11 @@ public class UserServiceImplementation implements UserService,UserDetailsService
     }
 
     @Override
+    public void deleteVerificationTokenForUser(VerificationToken token) {
+        verificationTokenDAO.deleteVerificationTokenForUser(token);
+    }
+
+    @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         return read(s);
     }

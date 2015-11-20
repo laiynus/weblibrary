@@ -43,7 +43,7 @@ public class UserController {
     public ModelAndView login(@RequestParam(value = "error", required = false) String error, @RequestParam(value = "logout", required = false) String logout,@RequestParam(value = "message", required = false) String message) {
         ModelAndView model = new ModelAndView();
         if (error != null) {
-            model.addObject("error", "Invalid username and password or your account not activated!");
+            model.addObject("error", error);
         }
         if (logout != null) {
             model.addObject("msg", "You've been logged out successfully.");
@@ -112,7 +112,7 @@ public class UserController {
         if (verificationToken == null) {
             String message = messages.getMessage("auth.message.invalidToken", null, locale);
             model.addAttribute("message", message);
-            return "redirect:/badUser.html?lang=" + locale.getLanguage();
+            return "redirect:/errors/baduser";
         }
         User user = verificationToken.getUser();
         Calendar cal = Calendar.getInstance();
@@ -122,7 +122,9 @@ public class UserController {
         }
         user.setIsEnabled(true);
         usersService.update(user);
-        return "redirect:/signin?message=success";
+        usersService.deleteVerificationTokenForUser(verificationToken);
+        model.addAttribute("message", "success");
+        return "redirect:/signin";
     }
 
 }

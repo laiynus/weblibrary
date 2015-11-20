@@ -23,7 +23,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler,Logout
         User user = usersService.read(authentication.getName());
         user.setDateOfLastUse(new Timestamp(new java.util.Date().getTime()));
         usersService.update(user);
-        httpServletResponse.sendRedirect("notes");
+        httpServletResponse.sendRedirect("home");
     }
 
     @Override
@@ -31,6 +31,6 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler,Logout
         User user = usersService.read(authentication.getName());
         user.setDateOfLastUse(new Timestamp(new java.util.Date().getTime()));
         usersService.update(user);
-        httpServletResponse.sendRedirect("sign?logout");
+        httpServletResponse.sendRedirect("signin?logout");
     }
 }

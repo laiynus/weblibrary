@@ -7,4 +7,5 @@ public interface VerificationTokenDAO {
     VerificationToken findByToken(String token);
     VerificationToken findByUser(User user);
     void createVerificationTokenForUser(VerificationToken token);
+    void deleteVerificationTokenForUser(VerificationToken token);
 }

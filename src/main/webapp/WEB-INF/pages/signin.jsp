@@ -28,6 +28,26 @@
                 </div>
                 <div class="panel-body">
                     <c:if test="${not empty error}">
+                        <c:choose>
+                            <c:when test="${SPRING_SECURITY_LAST_EXCEPTION.message == 'User is disabled'}">
+                                <div class="alert alert-danger fade in">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <spring:message code="auth.message.disabled"/>
+                                </div>
+                            </c:when>
+                            <c:when test="${SPRING_SECURITY_LAST_EXCEPTION.message == 'User account has expired'}">
+                                <div class="alert alert-danger fade in">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <spring:message code="auth.message.expired"/>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="alert alert-danger fade in">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <spring:message code="message.badCredentials"/>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
                         <div class="alert alert-danger fade in">
                             <button type="button" class="close" data-dismiss="alert">&times;</button>
                                 ${error}
